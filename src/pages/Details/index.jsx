@@ -1,3 +1,4 @@
+import { Button } from '../../components/Button'
 import { Container } from './styles'
 
 export function Details() {
@@ -5,6 +6,7 @@ export function Details() {
     <Container>
       <h1>Hello World!</h1>
       <span>Gabriel Rocha</span>
+      <Button loading>Entrar</Button>
     </Container>
   )
 }

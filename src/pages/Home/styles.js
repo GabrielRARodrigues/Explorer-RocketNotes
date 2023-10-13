@@ -52,7 +52,7 @@ export const Menu = styled.ul`
 export const Search = styled.div`
   grid-area: search;
 
-  background-color: #9955ff;
+  padding: 64px 64px 0;
 `
 
 export const Content = styled.div`
@@ -66,5 +66,14 @@ export const NewNote = styled.button`
 
   border: none;
 
-  background-color: #ffee55;
+  background-color: ${({ theme }) => theme.COLORS.ORANGE};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  & > svg {
+    font-size: 22px;
+  }
 `

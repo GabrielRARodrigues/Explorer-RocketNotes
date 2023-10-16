@@ -4,6 +4,8 @@ import { Brand, Container, Content, Menu, NewNote, Search } from './styles'
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
 import { Input } from '../../components/Input'
+import { Section } from '../../components/Section'
+import { Note } from '../../components/Note'
 
 export function Home() {
   return (
@@ -29,7 +31,22 @@ export function Home() {
         <Input placeholder="Pesquisar pelo título" />
       </Search>
 
-      <Content></Content>
+      <Content>
+        <Section title="Minhas notas">
+          <Note
+            data={{
+              title: 'React',
+              tags: [
+                { id: '1', name: 'react' },
+                {
+                  id: 2,
+                  name: 'nodejs'
+                }
+              ]
+            }}
+          />
+        </Section>
+      </Content>
 
       <NewNote>
         <FiPlus />

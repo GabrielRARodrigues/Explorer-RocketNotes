@@ -4,11 +4,15 @@ import { FiMail, FiLock } from 'react-icons/fi'
 
 import { Container, Form, Background } from './styles'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { MyContext } from '../../myContext'
 
 export function SignIn() {
+  const data = useContext(MyContext)
+  console.log('MEU CONTEXTO =>', data)
+
   return (
     <Container>
-    
       <Form>
         <h1>Rocket Notes</h1>
         <p>Aplicação para salvar e gerenciar seus links úteis.</p>

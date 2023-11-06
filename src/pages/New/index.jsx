@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { Container, Form } from './styles'
 
 import { Header } from '../../components/Header'
@@ -6,9 +8,22 @@ import { TextArea } from '../../components/TextArea'
 import { Section } from '../../components/Section'
 import { NoteItem } from '../../components/NoteItem'
 import { Button } from '../../components/Button'
+
 import { Link } from 'react-router-dom'
 
 export function New() {
+  const [links, setLinks] = useState([])
+  const [newLink, setNewLink] = useState('')
+
+  function handleAddLink() {
+    setLinks(prevState => [...prevState, newLink])
+    setNewLink('')
+  }
+
+  function handleRemoveLink(deleted) {
+    setLinks(prevState => prevState.filter(link => link !== deleted))
+  }
+
   return (
     <Container>
       <Header />
@@ -25,8 +40,22 @@ export function New() {
           <TextArea placeholder="Observações" />
 
           <Section title="Links úteis">
-            <NoteItem value="https://www.rocketseat.com.br/" />
-            <NoteItem isNew placeholder="Novo link" />
+            {links.map((link, index) => (
+              <NoteItem
+                key={index}
+                value={link}
+                onClick={() => {
+                  handleRemoveLink(link)
+                }}
+              />
+            ))}
+            <NoteItem
+              value={newLink}
+              isNew
+              placeholder="Novo link"
+              onChange={e => setNewLink(e.target.value)}
+              onClick={handleAddLink}
+            />
           </Section>
 
           <Section title="Marcadores">

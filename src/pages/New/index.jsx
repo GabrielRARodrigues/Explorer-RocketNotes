@@ -69,7 +69,7 @@ export function New() {
     })
 
     alert('Nota criada com sucesso')
-    navigate('/')
+    navigate(-1)
   }
 
   return (
@@ -80,7 +80,7 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <Link to="/">voltar</Link>
+            <Link to={-1}>voltar</Link>
           </header>
 
           <Input
